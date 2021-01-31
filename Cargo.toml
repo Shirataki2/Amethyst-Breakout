@@ -1,0 +1,18 @@
+[package]
+name = "breakout"
+version = "0.0.1"
+authors = ["Tomoya Ishii <tmy1997530@gmail.com>"]
+edition = "2018"
+default-run = "breakout"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies.amethyst]
+version = "0.15"
+features = ["vulkan", "no-slow-safety-checks"]
+
+[dependencies]
+structopt = "*"
+quick-xml = "*"
+image = "*"
+
+serde = { version = "1", features = ["derive"] }
