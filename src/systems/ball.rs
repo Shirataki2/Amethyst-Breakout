@@ -37,8 +37,8 @@ impl<'s> System<'s> for BallSystem {
                         } else {
                             1.0
                         };
-                        let amount = if amount < 0.0 { -0.5 } else { 0.5 } + amount * 0.6; 
-                        ball.velocity = (amount, 0.8);
+                        let amount = if amount < 0.0 { -0.5 } else { 0.5 } + amount * 1.4; 
+                        ball.velocity = (amount, 1.1);
                     }
                 }
             }
