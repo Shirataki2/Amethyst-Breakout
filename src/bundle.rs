@@ -8,6 +8,7 @@ use crate::systems::{
     animator::AnimatorSystem,
     paddle::PaddleSystem,
     ball::BallSystem,
+    bounce::BounceSystem,
 };
 
 pub struct GameBundle;
@@ -18,6 +19,7 @@ impl<'a, 'b> SystemBundle<'a, 'b> for GameBundle {
         builder.add(BlockSystem, "block_system", &[]);
         builder.add(PaddleSystem, "paddle_system", &["animator_system"]);
         builder.add(BallSystem, "ball_system", &["animator_system", "paddle_system"]);
+        builder.add(BounceSystem, "bounce_system", &["block_system", "ball_system"]);
         Ok(())
     }
 }
