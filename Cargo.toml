@@ -16,3 +16,11 @@ quick-xml = "*"
 image = "*"
 
 serde = { version = "1", features = ["derive"] }
+thread_profiler = "0.3"
+nalgebra = "0.24"
+
+[features]
+profiler = [
+    "thread_profiler/thread_profiler",
+    "amethyst/profiler"
+]

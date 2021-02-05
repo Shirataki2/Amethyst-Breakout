@@ -1,9 +1,7 @@
 (
     axes: {
-        Vertical(0): Emulated(pos: Key(W), neg: Key(S)),
-        Horizontal(0): Emulated(pos: Key(D), neg: Key(A)),
-        Vertical(1): Emulated(pos: Key(Up), neg: Key(Down)),
-        Horizontal(1): Emulated(pos: Key(Right), neg: Key(Left)),
+        Vertical(0): Emulated(pos: Key(Up), neg: Key(Down)),
+        Horizontal(0): Emulated(pos: Key(Right), neg: Key(Left)),
     },
     actions: {
         Shoot(0): [[Key(Z)]],

@@ -88,6 +88,7 @@ dependencies = [
  "amethyst_locale",
  "amethyst_network",
  "amethyst_rendy",
+ "amethyst_tiles",
  "amethyst_ui",
  "amethyst_utils",
  "amethyst_window",
@@ -103,6 +104,7 @@ dependencies = [
  "rayon",
  "rustc_version_runtime",
  "serde",
+ "thread_profiler",
  "vergen",
  "winit",
 ]
@@ -125,6 +127,7 @@ dependencies = [
  "log",
  "minterpolate",
  "serde",
+ "thread_profiler",
 ]
 
 [[package]]
@@ -150,6 +153,7 @@ dependencies = [
  "rayon",
  "ron",
  "serde",
+ "thread_profiler",
 ]
 
 [[package]]
@@ -167,6 +171,7 @@ dependencies = [
  "rodio",
  "serde",
  "smallvec 1.6.1",
+ "thread_profiler",
 ]
 
 [[package]]
@@ -178,6 +183,7 @@ dependencies = [
  "log",
  "ron",
  "serde",
+ "thread_profiler",
 ]
 
 [[package]]
@@ -194,6 +200,7 @@ dependencies = [
  "derive-new",
  "log",
  "serde",
+ "thread_profiler",
  "winit",
 ]
 
@@ -212,12 +219,13 @@ dependencies = [
  "fnv",
  "getset",
  "log",
- "nalgebra",
+ "nalgebra 0.19.0",
  "num-traits 0.2.14",
  "rayon",
  "serde",
  "specs",
  "specs-hierarchy",
+ "thread_profiler",
 ]
 
 [[package]]
@@ -258,6 +266,7 @@ dependencies = [
  "fnv",
  "serde",
  "smallvec 1.6.1",
+ "thread_profiler",
  "winit",
 ]
 
@@ -272,6 +281,7 @@ dependencies = [
  "amethyst_error",
  "fluent",
  "serde",
+ "thread_profiler",
  "unic-langid",
 ]
 
@@ -316,6 +326,33 @@ dependencies = [
  "serde",
  "smallvec 1.6.1",
  "static_assertions 1.1.0",
+ "thread_profiler",
+]
+
+[[package]]
+name = "amethyst_tiles"
+version = "0.15.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "557652b76240ccf17dca8f1dc1fb7e3e3dabdceeb5d9307e09e68019219e048b"
+dependencies = [
+ "amethyst_assets",
+ "amethyst_core",
+ "amethyst_error",
+ "amethyst_rendy",
+ "amethyst_window",
+ "bitintr",
+ "derivative 2.2.0",
+ "err-derive",
+ "failure",
+ "fnv",
+ "glsl-layout",
+ "hibitset",
+ "lazy_static",
+ "log",
+ "rayon",
+ "serde",
+ "smallvec 1.6.1",
+ "thread_profiler",
 ]
 
 [[package]]
@@ -342,11 +379,12 @@ dependencies = [
  "glyph_brush",
  "lazy_static",
  "log",
- "paste",
+ "paste 0.1.18",
  "rand 0.7.3",
  "ron",
  "serde",
  "smallvec 1.6.1",
+ "thread_profiler",
  "unicode-normalization",
  "unicode-segmentation",
  "winit",
@@ -371,6 +409,7 @@ dependencies = [
  "serde",
  "specs-derive",
  "specs-hierarchy",
+ "thread_profiler",
 ]
 
 [[package]]
@@ -427,6 +466,15 @@ name = "approx"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f0e60b75072ecd4168020818c0107f2857bb6c4e64252d8d3983f6263b40a5c3"
+dependencies = [
+ "num-traits 0.2.14",
+]
+
+[[package]]
+name = "approx"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3f2a05fd1bd10b2527e20a2cd32d8873d115b8b39fe219ee25f42a8aca6ba278"
 dependencies = [
  "num-traits 0.2.14",
 ]
@@ -551,6 +599,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf1de2fe8c75bc145a2f577add951f8134889b4795d47466a54a5c846d691693"
 
 [[package]]
+name = "bitintr"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7ba5a5c4df8ac8673f22698f443ef1ce3853d7f22d5a15ebf66b9a7553b173dd"
+
+[[package]]
 name = "blake2b_simd"
 version = "0.5.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -572,10 +626,12 @@ name = "breakout"
 version = "0.0.1"
 dependencies = [
  "amethyst",
- "image 0.21.3",
+ "image 0.23.12",
+ "nalgebra 0.24.1",
  "quick-xml",
  "serde",
  "structopt",
+ "thread_profiler",
 ]
 
 [[package]]
@@ -1368,6 +1424,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "generic-array"
+version = "0.14.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "501466ecc8a30d1d3b7fc9229b122b2ce8ed6e9d9223f1138d4babb253e51817"
+dependencies = [
+ "typenum",
+ "version_check",
+]
+
+[[package]]
 name = "genmesh"
 version = "0.6.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1451,6 +1517,16 @@ checksum = "471d90201b3b223f3451cd4ad53e34295f16a1df17b1edf3736d47761c3981af"
 dependencies = [
  "color_quant",
  "lzw",
+]
+
+[[package]]
+name = "gif"
+version = "0.11.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "02efba560f227847cb41463a7395c514d127d4f74fff12ef0137fff1b84b96c4"
+dependencies = [
+ "color_quant",
+ "weezl",
 ]
 
 [[package]]
@@ -1598,7 +1674,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "35371e467cd7b0b3d1d6013d619203658467df12d61b0ca43cd67b743b1965eb"
 dependencies = [
  "byteorder",
- "gif",
+ "gif 0.10.3",
  "jpeg-decoder",
  "lzw",
  "num-iter",
@@ -1616,7 +1692,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "08ed2ada878397b045454ac7cfb011d73132c59f31a955d230bd1f1c2e68eb4a"
 dependencies = [
  "byteorder",
- "gif",
+ "gif 0.10.3",
  "jpeg-decoder",
  "num-iter",
  "num-rational 0.2.4",
@@ -1635,11 +1711,14 @@ dependencies = [
  "bytemuck",
  "byteorder",
  "color_quant",
+ "gif 0.11.1",
  "jpeg-decoder",
  "num-iter",
  "num-rational 0.3.2",
  "num-traits 0.2.14",
  "png 0.16.8",
+ "scoped_threadpool",
+ "tiff 0.6.1",
 ]
 
 [[package]]
@@ -2003,16 +2082,34 @@ checksum = "0abb021006c01b126a936a8dd1351e0720d83995f4fc942d0d426c654f990745"
 dependencies = [
  "alga",
  "approx 0.3.2",
- "generic-array",
+ "generic-array 0.13.2",
  "matrixmultiply",
  "mint",
  "num-complex 0.2.4",
  "num-rational 0.2.4",
  "num-traits 0.2.14",
  "rand 0.7.3",
- "rand_distr",
+ "rand_distr 0.2.2",
  "serde",
  "serde_derive",
+ "typenum",
+]
+
+[[package]]
+name = "nalgebra"
+version = "0.24.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1a9002895a0de45e3cde58b36d0cf2f83249e7dba4a43ee64dafbf01bfd464ff"
+dependencies = [
+ "approx 0.4.0",
+ "generic-array 0.14.4",
+ "matrixmultiply",
+ "num-complex 0.3.1",
+ "num-rational 0.3.2",
+ "num-traits 0.2.14",
+ "rand 0.7.3",
+ "rand_distr 0.3.0",
+ "simba",
  "typenum",
 ]
 
@@ -2325,6 +2422,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "paste"
+version = "1.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c5d65c4d95931acda4498f675e332fcbdc9a06705cd07086c510e9b6009cd1c1"
+
+[[package]]
 name = "paste-impl"
 version = "0.1.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2633,6 +2736,16 @@ version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "96977acbdd3a6576fb1d27391900035bf3863d4a16422973a409b488cf29ffb2"
 dependencies = [
+ "rand 0.7.3",
+]
+
+[[package]]
+name = "rand_distr"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c9e9532ada3929fb8b2e9dbe28d1e06c9b2cc65813f074fcb6bd5fbefeff9d56"
+dependencies = [
+ "num-traits 0.2.14",
  "rand 0.7.3",
 ]
 
@@ -3363,6 +3476,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5752e017e03af9d735b4b069f53b7a7fd90fefafa04d8bd0c25581b0bff437f"
 
 [[package]]
+name = "simba"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "17bfe642b1728a6e89137ad428ef5d4738eca4efaba9590f9e110b8944028621"
+dependencies = [
+ "approx 0.4.0",
+ "num-complex 0.3.1",
+ "num-traits 0.2.14",
+ "paste 1.0.4",
+]
+
+[[package]]
 name = "siphasher"
 version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3642,6 +3767,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "tiff"
+version = "0.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9a53f4706d65497df0c4349241deddf35f84cee19c87ed86ea8ca590f4464437"
+dependencies = [
+ "jpeg-decoder",
+ "miniz_oxide 0.4.3",
+ "weezl",
+]
+
+[[package]]
 name = "time"
 version = "0.1.44"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3917,6 +4053,12 @@ dependencies = [
  "dlib",
  "lazy_static",
 ]
+
+[[package]]
+name = "weezl"
+version = "0.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a32b378380f4e9869b22f0b5177c68a5519f03b3454fde0b291455ddbae266c"
 
 [[package]]
 name = "winapi"

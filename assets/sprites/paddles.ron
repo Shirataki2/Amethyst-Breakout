@@ -1,0 +1,12 @@
+Paddle(
+    animator: Animator (
+        start_sprites: 321,
+        sprite_length: 3,
+        time_per_frame: 0.06,
+    ),
+    position: Position(
+        x: 0.5,
+        y: 0.05,
+    ),
+    scale_factor: 0.06,
+)

@@ -1,4 +1,5 @@
 (
     title: "Breakout",
-    dimensions: Some((800, 600)),
+    dimensions: Some((1000, 700)),
+    resizable: false,
 )

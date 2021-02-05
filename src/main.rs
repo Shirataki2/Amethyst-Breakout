@@ -2,6 +2,9 @@ mod states;
 mod settings;
 mod components;
 mod bundle;
+mod resources;
+mod systems;
+mod utils;
 
 use amethyst::{
     prelude::*,
@@ -21,7 +24,7 @@ use amethyst::{
 use std::time::Duration;
 
 use crate::{
-    states::MenuState,
+    states::LoadState,
     settings::MovementBindingTypes,
     bundle::GameBundle,
 };
@@ -37,7 +40,6 @@ fn main() -> amethyst::Result<()> {
 
     let game_data = GameDataBuilder::default()
         .with_bundle(TransformBundle::new())?
-        .with_bundle(GameBundle)?
         .with_bundle(
             InputBundle::<MovementBindingTypes>::new().with_bindings_from_file(key_bindings_path)?
         )?
@@ -45,12 +47,13 @@ fn main() -> amethyst::Result<()> {
             RenderingBundle::<DefaultBackend>::new()
                 .with_plugin(
                     RenderToWindow::from_config_path(display_config_path)?
-                        .with_clear([0.15, 0.20, 0.33, 1.0]),
+                        .with_clear([0.0, 0.0, 0.0, 1.0]),
                 )
                 .with_plugin(RenderFlat2D::default()),
-        )?;
+        )?
+        .with_bundle(GameBundle)?;
 
-    let mut game = Application::build(assets_root_dir, MenuState::default())?
+    let mut game = Application::build(assets_root_dir, LoadState::default())?
         .with_frame_limit(
             FrameRateLimitStrategy::SleepAndYield(Duration::from_millis(2)), 144
         )
